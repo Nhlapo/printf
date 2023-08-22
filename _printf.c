@@ -3,24 +3,22 @@
 int _printf(const char *format, ...) {
 	va_list args;
 	va_start(args, format);
-    
+
 	int count = 0;
+	char ch;
+	char *str;
 
 	while (*format != '\0') {
 		if (*format == '%') {
 			format++;
 
-			if (*format == '\0') {
-				break;
-			}
-
 			if (*format == 'c') {
-				int ch = va_arg(args, int);
+				ch = (char)va_arg(args, int);
 				putchar(ch);
 				count++;
 			} else if (*format == 's') {
-				char *str = va_arg(args, char *);
-					while (*str != '\0') {
+				str = va_arg(args, char *);
+				while (*str != '\0') {
 					putchar(*str);
 					str++;
 					count++;
@@ -28,10 +26,8 @@ int _printf(const char *format, ...) {
 			} else if (*format == '%') {
 				putchar('%');
 				count++;
-			} else {
-
 			}
-			} else {
+		} else {
 			putchar(*format);
 			count++;
 		}
@@ -41,9 +37,4 @@ int _printf(const char *format, ...) {
 
 	va_end(args);
 	return count;
-}
-
-int main() {
-	_printf("Hello, %s! This is a %c and a percent %% sign.\n", "world", 'c');
-	return 0;
 }

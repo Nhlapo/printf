@@ -22,10 +22,10 @@ int _printf(const char *format, ...) {
 			} else if (*format == 's') {
 				str = va_arg(args, char *);
 				while (*str != '\0') {
-					putchar(*str);
+				putchar(*str);
 					str++;
 					count++;
-				}
+			}
 			} else if (*format == 'd' || *format == 'i') {
 				int num = va_arg(args, int);
 				printf("%d", num);
@@ -49,6 +49,10 @@ int _printf(const char *format, ...) {
 			} else if (*format == '%') {
 				putchar('%');
 				count++;
+			} else {
+
+				printf("Unknown:[%%%c]", *format);
+				count += 12;
 		}
 	} else {
 			putchar(*format);

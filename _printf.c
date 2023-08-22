@@ -44,8 +44,8 @@ int _printf(const char *format, ...) {
 	va_start(args, format);
 
 	while (*format != '\0') {
-	if (*format == '%') {
-		format++;
+		if (*format == '%') {
+			format++;
 
 			if (*format == 'c') {
 				char ch = (char)va_arg(args, int);
@@ -70,9 +70,6 @@ int _printf(const char *format, ...) {
 				printAddress(addr, &count);
 			} else if (*format == '%') {
 				printChar('%', &count);
-			} else if (*format == 'r') {
-				printString("Unknown:[%r]", &count);
-				count += 10;
 			} else {
 				printString("Unknown:[%%%c]", &count);
 				count += 12;
@@ -86,21 +83,4 @@ int _printf(const char *format, ...) {
 
 	va_end(args);
 	return count;
-}
-
-int main() {
-
-	printf("Length:[%d, %i]\n", _printf("Length:[%d, %i]\n", 39, 39), _printf("Length:[%d, %i]\n", 39, 39));
-	printf("Negative:[%d]\n", _printf("Negative:[%d]\n", -762534));
-	printf("Unsigned:[%u]\n", _printf("Unsigned:[%u]\n", 2147484671));
-	printf("Unsigned octal:[%o]\n", _printf("Unsigned octal:[%o]\n", 20000001777));
-	printf("Unsigned hexadecimal:[%x, %X]\n", _printf("Unsigned hexadecimal:[%x, %X]\n", 2147484671, 2147484671));
-	printf("Character:[%c]\n", _printf("Character:[%c]\n", 'H'));
-	printf("String:[%s]\n", _printf("String:[%s]\n", "I am a string !"));
-	printf("Address:[%p]\n", _printf("Address:[%p]\n", (void *)0x7ffe637541f0));
-	printf("Percent:[%%]\n", _printf("Percent:[%%]\n"));
-	printf("Len:[%d]\n", _printf("Len:[%d]\n", 12));
-	printf("Unknown:[%r]\n", _printf("Unknown:[%r]\n"));
-
-	return 0;
 }

@@ -8,10 +8,10 @@ int _printf(const char *format, ...) {
 
 	while (*format != '\0') {
 		if (*format == '%') {
-			format++; // Move past '%'
+			format++;
 
 			if (*format == '\0') {
-				break; // If format ends with '%', stop
+				break;
 			}
 
 			if (*format == 'c') {
@@ -29,7 +29,7 @@ int _printf(const char *format, ...) {
 				putchar('%');
 				count++;
 			} else {
-			// Invalid format specifier, ignore
+
 			}
 			} else {
 			putchar(*format);

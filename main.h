@@ -6,7 +6,7 @@
 #include <stdio.h>
 
 int _printf(const char *format, ...);
-<<<<<<< HEAD
+
 void printChar(char ch, int *count);
 void printString(const char *str, int *count);
 void printInteger(int num, int *count);
@@ -15,8 +15,7 @@ void printOctal(unsigned int ui, int *count);
 void printHexadecimal(unsigned int ui, int *count);
 void printAddress(void *addr, int *count);
 
-#endif
-=======
+
 int handle_print(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
 
@@ -91,5 +90,5 @@ int is_digit(char);
 long int convert_size_number(long int num, int size);
 long int convert_size_unsgnd(unsigned long int num, int size);
 
-#endif /* MAIN_H */
->>>>>>> 5378f4d5739579081dfbe5a1a4ed70c5c8ad4665
+#endif
+

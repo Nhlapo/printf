@@ -108,10 +108,6 @@ int write_unsgnd(int is_negative, int ind,
 char buffer[],
 	int flags, int width, int precision, int size);
 
-/* Prototypes for printing functions */
-int print_char(va_list list, char buffer[], int flags, int width, int precision, int size);
-int print_string(va_list list, char buffer[], int flags, int width, int precision, int size);
-
 /* utils */
 int is_printable(char);
 int append_hexa_code(char, char[], int);
